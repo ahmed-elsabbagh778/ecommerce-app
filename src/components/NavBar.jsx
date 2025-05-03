@@ -1,6 +1,7 @@
 import { Container, Nav, Navbar } from "react-bootstrap";
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 export default function NavBar() {
   useEffect(() => {}, []);
@@ -12,10 +13,13 @@ export default function NavBar() {
           <Navbar bg="dark" data-bs-theme="dark">
             <Container>
               <Navbar.Brand href="#home">Ecommmerce App</Navbar.Brand>
-              <Nav className="me-auto">
-                <Nav.Link href="#home">Home</Nav.Link>
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+              <Nav className="ms-auto">
+                <Link className="nav-link" to="/">
+                  Home
+                </Link>
+                <Link className="nav-link" to="/Cart">
+                  Cart
+                </Link>
               </Nav>
             </Container>
           </Navbar>

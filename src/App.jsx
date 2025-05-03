@@ -1,22 +1,16 @@
-import NavBar from './components/NavBar';
+
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Cards from './components/Card';
-import ProductsList from './pages/ProductsList';
+import RoutesList from './routes/RoutesList';
+import { BrowserRouter } from 'react-router';
 
 
 function App() {
 
   return (
-     
-
-    <>
-    <NavBar />
-    <ProductsList />
-    </>
-    // <BrowserRouter>
-    //   <RoutesList />
-    // </BrowserRouter>
+    <BrowserRouter>
+      <RoutesList />
+    </BrowserRouter>
      
   )
 }

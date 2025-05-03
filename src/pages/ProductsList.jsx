@@ -1,18 +1,27 @@
-
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { axiosInstance } from "../apis/config";
 import Cards from "../components/Card";
 
 const ProductsList = () => {
-  const [products, setCard] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  axiosInstance
-    .get("/products")
-    .then((res) => setCard(res.data.products))
-    .catch((err) => console.log(err));
+  useEffect(() => {
+    axiosInstance
+      .get("/products")
+      .then((res) => setProducts(res.data.products))
+      .catch((err) => console.log(err))
+      .finally(() => setIsLoading(false));
+  }, []);
+
   return (
     <>
       <div className="container">
+        {isLoading && (
+          <div className="spinner-border position-absolute top-50 start-50" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        )}
         <div className="row g-4 m-3">
           {products.map((product) => {
             return (
