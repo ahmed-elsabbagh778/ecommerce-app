@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { axiosInstance } from "../apis/config";
-import Cards from "./Card";
+import Cards from "../components/Card";
 
 const ProductsList = () => {
   const [products, setCard] = useState([]);
