@@ -1,8 +1,10 @@
+
+import { useState } from "react";
 import { axiosInstance } from "../apis/config";
 import Cards from "./Card";
 
 const ProductsList = () => {
-  [products, setCard] = useState([]);
+  const [products, setCard] = useState([]);
 
   axiosInstance
     .get("/products")
@@ -11,10 +13,10 @@ const ProductsList = () => {
   return (
     <>
       <div className="container">
-        <div className="row">
+        <div className="row g-4 m-3">
           {products.map((product) => {
             return (
-              <div className="col-4" key={product.id}>
+              <div className="col-3" key={product.id}>
                 <Cards productItem={product} />
               </div>
             );
