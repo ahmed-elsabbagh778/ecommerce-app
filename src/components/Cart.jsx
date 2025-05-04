@@ -18,10 +18,8 @@ const Cart = () => {
           <h3>
             Total: $
             {cartItems.reduce((total, productItem) => {
-              return (total + productItem.price * productItem.quantity).toFixed(
-                2
-              );
-            }, 0)}
+              return total + productItem.price * productItem.quantity;
+            }, 0).toFixed(2)}
           </h3>
         </div>
       )}

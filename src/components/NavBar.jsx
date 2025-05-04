@@ -1,9 +1,13 @@
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Badge, Container, Nav, Navbar } from "react-bootstrap";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
 
 export default function NavBar() {
+  const cartItems = useSelector((state) => state.cart.items);
+  const cartCount = cartItems.length;
+
   useEffect(() => {}, []);
 
   return (
@@ -20,6 +24,7 @@ export default function NavBar() {
                 <Link className="nav-link" to="/Cart">
                   Cart
                 </Link>
+                <Badge bg="secondary mb-4 rounded-circle ">{cartCount}</Badge>
               </Nav>
             </Container>
           </Navbar>
