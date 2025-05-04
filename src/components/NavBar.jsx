@@ -25,6 +25,9 @@ export default function NavBar() {
                   Cart
                 </Link>
                 <Badge bg="secondary mb-4 rounded-circle ">{cartCount}</Badge>
+                <Link className="nav-link ms-3" to="/register">
+                  Register
+                </Link>
               </Nav>
             </Container>
           </Navbar>
