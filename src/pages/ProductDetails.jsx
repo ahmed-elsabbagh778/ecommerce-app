@@ -1,11 +1,22 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { axiosInstance } from "../apis/config";
 import { Badge, Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
+
 
 const ProductsDetails = () => {
   const [productItem, setProductItem] = useState();
   const params = useParams();
+  const navigate = useNavigate();
+  
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(addToCart(productItem));
+    navigate(`/Cart`);
+  };
 
   useEffect(() => {
     axiosInstance
@@ -69,7 +80,7 @@ const ProductsDetails = () => {
             <Button variant="success" className="mt-auto w-25 me-3" style={{ borderRadius: "20px" }}>
               Buy Now
             </Button>
-            <Button variant="outline-dark" className="mt-auto w-25" style={{ borderRadius: "20px" }}>
+            <Button onClick={handleClick} variant="outline-dark" className="mt-auto w-25" style={{ borderRadius: "20px" }}>
               Add to Cart
             </Button>
 
