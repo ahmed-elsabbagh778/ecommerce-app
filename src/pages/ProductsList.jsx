@@ -16,16 +16,22 @@ const ProductsList = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container-fluid px-2 my-3">
         {isLoading && (
-          <div className="spinner-border position-absolute top-50 start-50" role="status">
+          <div
+            className="spinner-border position-absolute top-50 start-50"
+            role="status"
+          >
             <span className="visually-hidden">Loading...</span>
           </div>
         )}
-        <div className="row g-4 m-3">
+        <div className="row g-3">
           {products.map((product) => {
             return (
-              <div className="col-3" key={product.id}>
+              <div
+                className="col-12 col-sm-6 col-md-4 col-lg-3"
+                key={product.id}
+              >
                 <Cards productItem={product} />
               </div>
             );
@@ -37,3 +43,6 @@ const ProductsList = () => {
 };
 
 export default ProductsList;
+
+// col-6 col-md-4 col-lg-3 mb-4
+// col-12 col-sm-6 col-md-4 col-lg-3

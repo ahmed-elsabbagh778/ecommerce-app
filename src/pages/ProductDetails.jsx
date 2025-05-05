@@ -5,12 +5,11 @@ import { Badge, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 
-
 const ProductsDetails = () => {
   const [productItem, setProductItem] = useState();
   const params = useParams();
   const navigate = useNavigate();
-  
+
   const dispatch = useDispatch();
 
   const handleClick = () => {
@@ -32,19 +31,19 @@ const ProductsDetails = () => {
   const isAvailable = productItem.availabilityStatus === "In Stock";
 
   return (
-    <div className="card mb-3" style={{ maxWidth: "80vw", height: "70vh" }}>
+    <div className="card mb-3 mx-auto" style={{ maxWidth: "1000px" }}>
       <div className="row g-0">
-        <div className="col-md-4">
+        <div className="col-md-5 d-flex align-items-center">
           <img
             src={productItem.images[0]}
-            className="img-fluid rounded-start"
+            className="img-fluid rounded-start p-3"
+            style={{ objectFit: "contain", width: "100%", height: "100%" }}
+            alt={productItem.title}
           />
         </div>
-        <div className="col-md-8">
-          <div className="card-body">
-            <h3 className="card-title" style={{ fontWeight: "bold" }}>
-              {productItem.title}
-            </h3>
+        <div className="col-md-7">
+          <div className="card-body d-flex flex-column h-100">
+            <h3 className="card-title fw-bold">{productItem.title}</h3>
             <p className="card-text">{productItem.description}</p>
             <p className="card-text">
               {Array.from({ length: 5 }, (_, index) => (
@@ -57,33 +56,40 @@ const ProductsDetails = () => {
                         : "#e4e5e9",
                   }}
                 >
-                  ★,
+                  ★
                 </span>
               ))}
             </p>
-            <hr></hr>
-            <h4 style={{ fontWeight: "bold" }}>${productItem.price}</h4>
-            <hr></hr>
-            <Badge bg={isAvailable ? "success" : "danger"} className=" my-2">
+
+            <h4 className="fw-bold mt-2">${productItem.price}</h4>
+
+            <Badge bg={isAvailable ? "success" : "danger"} className="my-2 me-auto">
               {productItem.availabilityStatus}
             </Badge>
-            <p>More Information</p>
-            <Badge bg={"warning"} className=" my-2 px-4 py-2 me-4">
-              {productItem.category}
-            </Badge>
-            <Badge bg={"warning"} className=" my-2 px-4 py-2 ">
-              {productItem.brand}
-            </Badge>
-            <hr></hr>
-            <p>Only {productItem.stock} items left!</p>
-            <div className="container">
-            <Button variant="success" className="mt-auto w-25 me-3" style={{ borderRadius: "20px" }}>
-              Buy Now
-            </Button>
-            <Button onClick={handleClick} variant="outline-dark" className="mt-auto w-25" style={{ borderRadius: "20px" }}>
-              Add to Cart
-            </Button>
 
+            <div className="mt-3">
+              <p className="mb-1">More Information:</p>
+              <Badge bg="warning" className="my-1 px-3 py-2 me-2">
+                {productItem.category}
+              </Badge>
+              <Badge bg="warning" className="my-1 px-3 py-2">
+                {productItem.brand}
+              </Badge>
+            </div>
+
+            <p className="mt-3">Only {productItem.stock} items left!</p>
+
+            <div className="mt-auto d-flex flex-wrap gap-3">
+              <Button variant="success" className="flex-grow-1 rounded-pill">
+                Buy Now
+              </Button>
+              <Button
+                onClick={handleClick}
+                variant="outline-dark"
+                className="flex-grow-1 rounded-pill"
+              >
+                Add to Cart
+              </Button>
             </div>
           </div>
         </div>

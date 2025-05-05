@@ -16,8 +16,8 @@ function Cards(props) {
 
   return (
     <Card
-      style={{ width: "18rem" }}
-      className="h-100 d-flex flex-column position-relative"
+      
+      className="h-100 d-flex flex-column"
     >
       <Badge
         bg={isAvailable ? "success" : "danger"}

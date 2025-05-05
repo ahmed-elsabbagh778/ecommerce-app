@@ -16,14 +16,14 @@ const Cart = () => {
       {cartItems.length > 0 && (
         <div className="d-flex justify-content-end">
           <h3>
-            Total: $
+            Total: $$
             {cartItems.reduce((total, productItem) => {
               return total + productItem.price * productItem.quantity;
             }, 0).toFixed(2)}
           </h3>
         </div>
       )}
-      <hr></hr>
+      <hr />
 
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
@@ -31,10 +31,11 @@ const Cart = () => {
         cartItems.map((productItem, index) => (
           <div
             key={index}
-            className="card mb-3 justify-content-center bg-light"
+            className="card mb-3 bg-light"
+            style={{ borderRadius: "8px" }}
           >
             <div className="row g-0">
-              <div className="col-md-2">
+              <div className="col-12 col-md-3">
                 <img
                   src={productItem.images[0]}
                   className="img-fluid rounded-start"
@@ -42,68 +43,57 @@ const Cart = () => {
                   style={{ height: "200px", objectFit: "contain" }}
                 />
               </div>
-              <div className="col-md-10 my-auto">
-                <div className="card-body ">
-                  
-                  <div className="row justify-content-center align-items-center my-auto">
-                    <div className="col-4">
+              <div className="col-12 col-md-9">
+                <div className="card-body">
+                  <div className="row justify-content-between align-items-center">
+                    <div className="col-12 col-md-6">
                       <h5 className="card-title">{productItem.title}</h5>
-                      <p className="card-text">
-                        {productItem.shippingInformation}
-                      </p>
+                      <p className="card-text">{productItem.shippingInformation}</p>
                     </div>
-                    
-                    <div className="col-2">
+
+                    <div className="col-12 col-md-3">
                       <p className="card-text">
                         <strong>Quantity: {productItem.quantity}</strong>
                       </p>
                       <p className="card-text">
                         <strong>
                           Price: $
-                          {(productItem.price * productItem.quantity).toFixed(
-                            2
-                          )}
+                          {(productItem.price * productItem.quantity).toFixed(2)}
                         </strong>
                       </p>
                     </div>
 
-                    <div className="col-6">
-                      <div className="row align-items-center justify-content-around">
-                        <div className="col-2">
-                          <div className="d-flex align-items-center ">
-                            <Button
-                              className="px-3"
-                              variant="outline-secondary"
-                              size="sm"
-                              onClick={() =>
-                                dispatch(decreaseQuantity(productItem.id))
-                              }
-                              style={{ fontWeight: "bold" }}
-                            >
-                              -
-                            </Button>
-                            <span className="mx-3">{productItem.quantity}</span>
-                            <Button
-                              className="px-3"
-                              variant="outline-secondary"
-                              size="sm"
-                              onClick={() =>
-                                dispatch(increaseQuantity(productItem.id))
-                              }
-                            >
-                              +
-                            </Button>
-                          </div>
-                        </div>
-                        <div className="col-2 ">
-                          <Button
-                            className="btn btn-danger py-1 px-4 "
-                            onClick={() => dispatch(removeItem(productItem.id))}
-                          >
-                            Remove
-                          </Button>
-                        </div>
+                    <div className="col-12 col-md-4 d-flex justify-content-between gap-4 mt-4">
+                      <div className="d-flex align-items-center">
+                        <Button
+                          className="px-3"
+                          variant="outline-secondary"
+                          size="sm"
+                          onClick={() =>
+                            dispatch(decreaseQuantity(productItem.id))
+                          }
+                          style={{ fontWeight: "bold" }}
+                        >
+                          -
+                        </Button>
+                        <span className="mx-3">{productItem.quantity}</span>
+                        <Button
+                          className="px-3"
+                          variant="outline-secondary"
+                          size="sm"
+                          onClick={() =>
+                            dispatch(increaseQuantity(productItem.id))
+                          }
+                        >
+                          +
+                        </Button>
                       </div>
+                      <Button
+                        className="btn btn-danger py-1 px-4"
+                        onClick={() => dispatch(removeItem(productItem.id))}
+                      >
+                        Remove
+                      </Button>
                     </div>
                   </div>
                 </div>
