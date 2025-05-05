@@ -29,6 +29,13 @@ A simple E-commerce web application built with **React**, **Redux Toolkit**, and
 
 ## Getting Started
 
+### Run live from here:
+```
+https://ecommerce-app-dekk.vercel.app/
+```
+
+OR
+
 ### 1. Clone the repository
 
 ```bash
