@@ -16,7 +16,7 @@ export default function NavBar() {
         <div className="border border-r-0 border-l-0 border-gray-200 dark:border-gray-600">
           <Navbar bg="dark" data-bs-theme="dark">
             <Container>
-              <Navbar.Brand href="#home">Ecommmerce App</Navbar.Brand>
+              <Navbar.Brand>Ecommmerce App</Navbar.Brand>
               <Nav className="ms-auto">
                 <Link className="nav-link" to="/">
                   Home
