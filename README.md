@@ -14,7 +14,7 @@ A simple E-commerce web application built with **React**, **Redux Toolkit**, and
 - Client-side routing with React Router
 - Styled with **Bootstrap 5**
 
----
+
 
 ## Technologies Used
 
@@ -25,7 +25,7 @@ A simple E-commerce web application built with **React**, **Redux Toolkit**, and
 - [React Router](https://reactrouter.com/)
 - [Axios](https://axios-http.com/)
 
----
+
 
 ## Getting Started
 
