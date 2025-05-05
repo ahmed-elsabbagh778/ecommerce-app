@@ -16,9 +16,6 @@ A simple E-commerce web application built with **React**, **Redux Toolkit**, and
 
 ---
 
-
----
-
 ## Technologies Used
 
 - [React](https://react.dev/)
@@ -57,7 +54,7 @@ npm run dev
 This project is open source and available under the MIT License.
 
 ## Author
-Developed by Ahmed Elsabbagh
+Developed by Ahmed Elsabbagh,
 Feel free to fork, star, and contribute!
 
 
