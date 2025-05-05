@@ -1,12 +1,15 @@
-import { Badge, Container, Nav, Navbar } from "react-bootstrap";
+import { Badge, Container, Dropdown, Nav, Navbar } from "react-bootstrap";
 
-import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { LanguageContext } from "../contexts/language";
 
 export default function NavBar() {
   const cartItems = useSelector((state) => state.cart.items);
   const cartCount = cartItems.length;
+
+  const  [language , toggleLanguage]  = useContext(LanguageContext);
 
   useEffect(() => {}, []);
 
@@ -17,7 +20,7 @@ export default function NavBar() {
           <Navbar bg="dark" data-bs-theme="dark">
             <Container>
               <Navbar.Brand>Ecommmerce App</Navbar.Brand>
-              <Nav className="ms-auto">
+              <Nav className="ms-rtl-auto">
                 <Link className="nav-link" to="/">
                   Home
                 </Link>
@@ -28,6 +31,16 @@ export default function NavBar() {
                 <Link className="nav-link ms-3" to="/register">
                   Register
                 </Link>
+                <Dropdown className="ms-3">
+                  <Dropdown.Toggle variant="outline-light" id="dropdown-basic" >
+                    language
+                  </Dropdown.Toggle>
+
+                  <Dropdown.Menu>
+                    <Dropdown.Item onClick={toggleLanguage}>English</Dropdown.Item>
+                    <Dropdown.Item onClick={toggleLanguage}>Arabic</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
               </Nav>
             </Container>
           </Navbar>
