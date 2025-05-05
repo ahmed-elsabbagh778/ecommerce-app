@@ -1,14 +1,7 @@
 import LayoutWithHeader from "../components/LayoutWithHeader";
-// import ProductsList from "../pages/ProductsList";
-// import NotFound from "../pages/NotFound"
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router";
-// import ProductsDetails from "../pages/ProductDetails";
-// import Cart from "../components/Cart";
-// import Register from "../pages/Register";
 
-
-// const LayoutWithHeader = lazy(() => import("../components/LayoutWithHeader"));
 const ProductsList = lazy(() => import("../pages/ProductsList"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const ProductsDetails = lazy(() => import("../pages/ProductDetails"));
